@@ -1,0 +1,22 @@
+<mat-card class="card {{'bg-color-'+pokemonDetails.types[0].type.name+'-light'}}">
+  <mat-card-header>
+    <!-- Header -->
+    <h2 class="header-name">{{pokemon.name | titlecase}}</h2>
+  </mat-card-header>
+  <img mat-card-image [src]="pokemonDetails.sprites.front_default" alt="{{pokemon.name}} picture">
+  <mat-card-content>
+    <!-- content -->
+    
+        <h3>Type:</h3>
+        <ul>
+          <h5 *ngFor="let typeArr of pokemonDetails.types" class="badge rounded-pill {{'bg-color-'+typeArr.type.name}}">
+            {{typeArr.type.name | titlecase}}
+          </h5>
+        </ul>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- actions -->
+    <button mat-raised-button color="primary" routerLink="/Pokemon/{{pokemon.name}}" class="m-auto">View Details</button>
+  </mat-card-actions>
+</mat-card>

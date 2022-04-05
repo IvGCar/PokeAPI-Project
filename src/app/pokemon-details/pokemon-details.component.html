@@ -1,0 +1,49 @@
+
+<div class="container justify-content-center">
+  <div class="card mx-auto {{'bg-color-'+pokemonDetails.types[0].type.name+'-light'}} w-80">
+    <div class="row g-0">
+      <div class="card-header text-center mt-2">
+        <h1>{{pokemonDetails.name | titlecase}}</h1>        
+      </div>
+      <div class="col-md-4 {{'bg-color-'+pokemonDetails.types[0].type.name}}">
+        <img [src]="pokemonDetails.sprites.front_default" alt="{{pokemonDetails.name}} picture" class="img-fluid w-100">
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 *ngFor="let typeArr of pokemonDetails.types" class="badge rounded-pill {{'bg-color-'+typeArr.type.name}}">
+            {{typeArr.type.name | titlecase}}
+          </h5>
+          <ul class="list-group ">
+            <div class="list-group-item {{'bg-color-'+pokemonDetails.types[0].type.name+'-light'}}">
+              <h4 >Height: {{pokemonDetails.height}}</h4>
+              <h4>Weight: {{pokemonDetails.weight}}</h4>
+            </div>
+            <div class="list-group-item {{'bg-color-'+pokemonDetails.types[0].type.name+'-light'}}">
+              <h4>Stats:</h4>
+              <ul>
+                <li *ngFor="let statsArr of pokemonDetails.stats" class="">
+                  {{statsArr.stat.name | titlecase}} : {{statsArr.base_stat | statsPipe}}
+                </li>
+              </ul>
+            </div>
+
+            <div class="list-group-item {{'bg-color-'+pokemonDetails.types[0].type.name+'-light'}}">
+              <h4>Abilities:</h4>
+              <ul>
+                <li *ngFor="let abilitiesArr of pokemonDetails.abilities" class="">
+                  {{abilitiesArr.ability.name | titlecase}}
+                </li>
+              </ul>
+            </div>           
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
